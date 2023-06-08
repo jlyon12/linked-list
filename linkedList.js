@@ -4,16 +4,16 @@ import Node from './node.js';
 
 export default class LinkedList {
 	constructor(head) {
-		this.head = head || null;
+		this._head = head || null;
 	}
 
 	append(value) {
 		let currentNode;
 		let newNode = new Node(value);
-		if (this.head === null) {
-			this.head = newNode;
+		if (this._head === null) {
+			this._head = newNode;
 		} else {
-			currentNode = this.head;
+			currentNode = this._head;
 			while (currentNode.nextNode) {
 				currentNode = currentNode.nextNode;
 			}
@@ -23,13 +23,13 @@ export default class LinkedList {
 
 	prepend(value) {
 		const newNode = new Node(value);
-		newNode.nextNode = this.head;
-		this.head = newNode;
+		newNode.nextNode = this._head;
+		this._head = newNode;
 	}
 
 	size() {
 		let count = 0;
-		let currentNode = this.head;
+		let currentNode = this._head;
 		if (currentNode) {
 			count += 1;
 			while (currentNode.nextNode) {
@@ -38,5 +38,9 @@ export default class LinkedList {
 			}
 		}
 		return count;
+	}
+
+	get head() {
+		return this._head;
 	}
 }

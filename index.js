@@ -9,3 +9,4 @@ list.append('Node 4');
 list.prepend('Node Y');
 list.append('Node 5');
 console.log(list.size());
+console.log(list.head);
