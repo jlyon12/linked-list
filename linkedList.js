@@ -59,4 +59,14 @@ export default class LinkedList {
 		}
 		return currentNode;
 	}
+
+	pop() {
+		let currentNode = this._head;
+
+		for (let i = 2; i < this._size; i += 1) {
+			currentNode = currentNode.nextNode;
+		}
+		currentNode.nextNode = null;
+		this._size -= 1;
+	}
 }
