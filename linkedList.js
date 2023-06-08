@@ -22,4 +22,11 @@ export default class LinkedList {
 		}
 		this.size += 1;
 	}
+
+	prepend(value) {
+		const newNode = new Node(value);
+		newNode.nextNode = this.head;
+		this.head = newNode;
+		this.size += 1;
+	}
 }
