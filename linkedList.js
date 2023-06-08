@@ -62,7 +62,7 @@ export default class LinkedList {
 
 	pop() {
 		let currentNode = this._head;
-
+		if (!currentNode) return;
 		for (let i = 2; i < this._size; i += 1) {
 			currentNode = currentNode.nextNode;
 		}
