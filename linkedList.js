@@ -43,4 +43,14 @@ export default class LinkedList {
 	get head() {
 		return this._head;
 	}
+
+	get tail() {
+		let currentNode = this._head;
+		if (currentNode !== null) {
+			while (currentNode.nextNode) {
+				currentNode = currentNode.nextNode;
+			}
+		}
+		return currentNode;
+	}
 }
