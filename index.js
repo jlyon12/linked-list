@@ -2,7 +2,6 @@ import LinkedList from './linkedList.js';
 
 const list = new LinkedList();
 list.append('Node 1');
-
 list.append('Node 2');
 list.append('Node 3');
 list.prepend('Node Z');
@@ -19,3 +18,5 @@ list.pop();
 console.log(list.size);
 console.log(list.tail);
 console.log(list.contains('Node 5'));
+console.log(list.find('Node Y'));
+console.log(list.find('Node 4'));
