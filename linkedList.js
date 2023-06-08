@@ -5,6 +5,7 @@ import Node from './node.js';
 export default class LinkedList {
 	constructor(head) {
 		this._head = head || null;
+		this._size = 0;
 	}
 
 	append(value) {
@@ -19,25 +20,18 @@ export default class LinkedList {
 			}
 			currentNode.nextNode = newNode;
 		}
+		this._size += 1;
 	}
 
 	prepend(value) {
 		const newNode = new Node(value);
 		newNode.nextNode = this._head;
 		this._head = newNode;
+		this._size += 1;
 	}
 
-	size() {
-		let count = 0;
-		let currentNode = this._head;
-		if (currentNode) {
-			count += 1;
-			while (currentNode.nextNode) {
-				currentNode = currentNode.nextNode;
-				count += 1;
-			}
-		}
-		return count;
+	get size() {
+		return this._size;
 	}
 
 	get head() {
