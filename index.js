@@ -20,3 +20,4 @@ console.log(list.tail);
 console.log(list.contains('Node 5'));
 console.log(list.find('Node Y'));
 console.log(list.find('Node 4'));
+console.log(list.toString());
