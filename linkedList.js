@@ -111,14 +111,32 @@ export default class LinkedList {
 		const newNode = new Node(value);
 		let tempNode;
 		if (this._head === null) {
-			return undefined;
+			throw new Error(
+				`No root node exists. Call either 'append' or 'prepend' method instead.`
+			);
 		}
-		for (let i = 0; i < index - 1; i += 1) {
+		if (index >= this._size) {
+			throw new Error(
+				`Index ${index} does not exist. Call either 'append' or 'prepend' method instead.`
+			);
+		}
+		for (let i = 1; i < index; i += 1) {
 			currentNode = currentNode.nextNode;
 			tempNode = currentNode.nextNode;
 		}
-		currentNode.nextNode = newNode;
-		newNode.nextNode = tempNode;
+		if (index === 0) {
+			tempNode = this._head;
+			this._head = newNode;
+			newNode.nextNode = tempNode;
+		} else if (index === 1) {
+			tempNode = this._head.nextNode;
+			this._head.nextNode = newNode;
+			newNode.nextNode = tempNode;
+		} else {
+			currentNode.nextNode = newNode;
+			newNode.nextNode = tempNode;
+		}
+
 		this._size += 1;
 	}
 }
