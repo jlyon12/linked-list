@@ -21,3 +21,5 @@ console.log(list.contains('Node 5'));
 console.log(list.find('Node Y'));
 console.log(list.find('Node 4'));
 console.log(list.toString());
+list.insertAt('Node 3.5', 5);
+console.log(list.toString());

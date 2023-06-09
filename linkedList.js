@@ -105,4 +105,20 @@ export default class LinkedList {
 		}
 		return string;
 	}
+
+	insertAt(value, index) {
+		let currentNode = this._head;
+		const newNode = new Node(value);
+		let tempNode;
+		if (this._head === null) {
+			return undefined;
+		}
+		for (let i = 0; i < index - 1; i += 1) {
+			currentNode = currentNode.nextNode;
+			tempNode = currentNode.nextNode;
+		}
+		currentNode.nextNode = newNode;
+		newNode.nextNode = tempNode;
+		this._size += 1;
+	}
 }
