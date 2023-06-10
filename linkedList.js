@@ -139,4 +139,25 @@ export default class LinkedList {
 
 		this._size += 1;
 	}
+
+	removeAt(index) {
+		let currentNode = this._head;
+		let tempNode = this._head;
+		if (index === 0) {
+			this._head = currentNode.nextNode;
+		}
+		if (index >= this._size) {
+			throw new Error(
+				`Index ${index} does not exist. Call 'pop' method instead.`
+			);
+		}
+		for (let i = 0; i <= index; i += 1) {
+			currentNode = currentNode.nextNode;
+		}
+		for (let i = 1; i < index; i += 1) {
+			tempNode = tempNode.nextNode;
+		}
+		tempNode.nextNode = currentNode;
+		this._size -= 1;
+	}
 }
